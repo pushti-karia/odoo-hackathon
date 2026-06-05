@@ -1,6 +1,18 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { VENDORS0, RFQS0, QUOTES0, POS0, INVOICES0, APPROVALS0, LOGS0 } from "../data/seed";
 
+/* ── Seed version — bump this whenever seed data changes to auto-clear old localStorage ── */
+const SEED_VERSION = "v2-clean";
+const SEED_VERSION_KEY = "vb_seed_version";
+
+function clearIfSeedChanged() {
+  const stored = localStorage.getItem(SEED_VERSION_KEY);
+  if (stored !== SEED_VERSION) {
+    Object.values(STORE_KEYS).forEach(k => localStorage.removeItem(k));
+    localStorage.setItem(SEED_VERSION_KEY, SEED_VERSION);
+  }
+}
+
 /* ══════════════════════════════════════════
    Keys
 ══════════════════════════════════════════ */
@@ -112,6 +124,8 @@ function usePersisted<T>(key: StoreKey, seed: T) {
    Main store
 ══════════════════════════════════════════ */
 export function useStore() {
+  // Auto-clear localStorage if seed version changed
+  clearIfSeedChanged();
   const [vendors,    setVendors]    = usePersisted(STORE_KEYS.vendors,    VENDORS0);
   const [rfqs,       setRfqs]       = usePersisted(STORE_KEYS.rfqs,       RFQS0);
   const [quotations, setQuotations] = usePersisted(STORE_KEYS.quotations, QUOTES0);

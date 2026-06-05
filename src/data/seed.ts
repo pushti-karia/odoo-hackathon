@@ -5,40 +5,17 @@ export const VENDORS0 = [
   { id:"V004", name:"CloudKit Pvt.",    category:"Software",    gst:"27DDDCK3456F4Z8", contact:"Sneha Joshi",  email:"sneha@cloudkit.in",    phone:"+91-98765-11111", status:"Inactive", rating:4.5 },
 ];
 
-export const RFQS0 = [
-  { id:"RFQ-001", title:"Office Laptops Q4",  product:"Dell Latitude 5540", quantity:25,  unit:"units", deadline:"2024-12-20", vendors:["V001","V004"], status:"Quoted", createdBy:"officer", createdAt:"2024-12-01" },
-  { id:"RFQ-002", title:"Printer Cartridges", product:"HP LaserJet Carts",  quantity:100, unit:"packs", deadline:"2024-12-15", vendors:["V002"],        status:"Open",   createdBy:"officer", createdAt:"2024-12-05" },
-];
+export const RFQS0: any[] = [];
 
-export const QUOTES0 = [
-  { id:"Q-001", rfqId:"RFQ-001", vendorId:"V001", unitPrice:78000, totalPrice:1950000, delivery:"10 days", notes:"Includes 1yr warranty",     status:"Submitted", submittedAt:"2024-12-03" },
-  { id:"Q-002", rfqId:"RFQ-001", vendorId:"V004", unitPrice:82000, totalPrice:2050000, delivery:"7 days",  notes:"Express delivery available", status:"Submitted", submittedAt:"2024-12-04" },
-];
+export const QUOTES0: any[] = [];
 
-export const POS0 = [
-  { id:"PO-001", rfqId:"RFQ-001", quotationId:"Q-001", vendorId:"V001", product:"Dell Latitude 5540", quantity:25, unitPrice:78000, subtotal:1950000, tax:351000, total:2301000, status:"Active", createdAt:"2024-12-06" },
-];
+export const POS0: any[] = [];
 
-export const INVOICES0 = [
-  { id:"INV-001", poId:"PO-001", vendorId:"V001", product:"Dell Latitude 5540", quantity:25, subtotal:1950000, tax:351000, total:2301000, status:"Sent", createdAt:"2024-12-07", dueDate:"2024-12-21" },
-];
+export const INVOICES0: any[] = [];
 
-export const APPROVALS0 = [
-  { id:"APR-001", rfqId:"RFQ-001", quotationId:"Q-001", status:"Approved", remarks:"Best value", approvedBy:"manager", approvedAt:"2024-12-05",
-    timeline:[
-      { action:"Submitted for approval", by:"officer", at:"2024-12-04 14:30" },
-      { action:"Approved",               by:"manager", at:"2024-12-05 09:15" },
-    ],
-  },
-];
+export const APPROVALS0: any[] = [];
 
-export const LOGS0 = [
-  { id:1, action:"RFQ Created",        detail:"RFQ-001: Office Laptops Q4",  by:"officer", at:"2024-12-01 10:00", type:"rfq"      },
-  { id:2, action:"Quotation Received", detail:"Q-001 from TechSupply Co.",    by:"vendor",  at:"2024-12-03 11:30", type:"quote"    },
-  { id:3, action:"Quotation Approved", detail:"APR-001 approved by manager",  by:"manager", at:"2024-12-05 09:15", type:"approval" },
-  { id:4, action:"PO Generated",       detail:"PO-001 created",               by:"officer", at:"2024-12-06 10:00", type:"po"       },
-  { id:5, action:"Invoice Sent",       detail:"INV-001 emailed to vendor",    by:"officer", at:"2024-12-07 14:00", type:"invoice"  },
-];
+export const LOGS0: any[] = [];
 
 export const USERS = [
   { id:"officer",     name:"Kavya Reddy",  role:"Procurement Officer", avatar:"KR" },
